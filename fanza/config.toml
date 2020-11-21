@@ -1,4 +1,4 @@
-# iKOA的配置文件
+# IKW的配置文件
 # 以下配置为推荐配置
 
 ## 这是一个TOML文档
@@ -21,11 +21,11 @@ serial = ''
 ## 如果是相对路径，则是相对于配置文件的路径
 path = 'downloads'
 ## 创建子文件夹
-subfolder = true
+subfolder = false
 ## 下载封面图片（大）
-cover = true
+cover = false
 ## 下载封面图片（小）
-miniature = true
+miniature = false
 ## NONE: 不要下载字幕
 ## FIFO: 下载符合所选条件的第一个字幕文件
 ## ALL:  下载全部可以找到的字幕文件
@@ -50,7 +50,6 @@ subtitle_lang = 'zh-Hans|zh-Hant|en|ja'
 subtitle_utf8 = false
 ## 等待网络爬虫程序完成图像和字幕的下载，然后再开始
 await_scraper = false
-
 
 [behavior]
 ## policy <0-2>; 行为准则
@@ -78,7 +77,7 @@ shutdown_on_complete = false
 
 [aspect]
 ## motd = <...>; 设置是否不显示“Message of The Day”输出则在屏幕上（每日提示）
-motd = 'iKu Original Adult 2020.09.07'
+#motd = 'iKu Original Adult 2020.09.07'
 ## 显示速度 分片/秒（进度条）
 progressbar_chunkspeed = false
 ## 显示可用空间
@@ -102,8 +101,8 @@ filename = 'cid'
 ## 无损视频格式：mp4 或 mkv 或 raw (= ts = mpegts)
 video_format = 'mp4'
 ## 下载引擎：concurrent 或 consecutive
-## concurrent ：iKOA会边下载边编码
-## consecutive：下载完毕后，iKOA 才会进行编码（双重处理）
+## concurrent ：IKW会边下载边编码
+## consecutive：下载完毕后，IKW 才会进行编码（双重处理）
 ## -> 默认值：concurrent
 encoding_engine = 'concurrent'
 ## 如果引擎concurrent存在问题，用引擎consecutive作为后备
@@ -113,9 +112,9 @@ preserve_raw_file = false
 ## 将moov atom移动到文件顶部，仅 mp4 (ffmpeg: -movflags +faststart)
 web_optimized = false
 ## 测试版功能：给视频文件添加封面（仅 mp4 和 mkv 格式）
-cover_art = true
+cover_art = false
 ## 测试版功能：移除大咪咪电影封面中的两侧白边框 (147x200)
-crop_cover_art = true
+crop_cover_art = false
 ## 写日志文件
 chunk_log = false
 ## 将FFmpeg命令的输出记录到文件中
@@ -133,16 +132,16 @@ ffmpeg_probesize = 10000000
 ## job <1-99>; 同时下载数量
 ## 值太高可能会减慢下载速度
 ## 视频高清（3MB 分片）：16 (~50 MB/s), 32 (~100 MB/s)
-## -> 默认值：12
+## -> 默认值：20
 job = 16
-## buffer <1-..> 设为0，iKOA会自动用默认值; 视频码流缓冲区的大小（分片数量）
+## buffer <1-..> 设为0，IKW会自动用默认值; 视频码流缓冲区的大小（分片数量）
 ## 高达视频缓冲时，下载器可容纳多少个分片
 ## 这个值是跟同时下载数量 {job} 相关的
 ## 每个分片通常是3MB，要是这个值是32的话，缓冲区会高达 3MB * 32 = 96MB
 ## -> 默认值：0 是 2 * {job} + {job} / 2
-buffer = 0
+buffer = 72
 ## timeout <1-99>; 单次请求超时时间的秒数
-timeout = 15
+timeout = 4
 ## retry <0-99>; 最大尝试次数
 retry = 30
 ## retry <0-MAX_INT>; HTTP 404错误的最大尝试次数
@@ -151,7 +150,7 @@ retry_on_404 = 15
 ## 等待的秒数第一次失败之后根据公式：
 ## 等待的秒数 = {backoff} * (2 ** ({次数} - 1))
 ## -> 默认值： 0.1 是 [0.1秒, 0.2秒, 0.4秒 。。]
-backoff = 0.1
+backoff = 0.0
 ## 使用伪随机用户代理
 random_ua = true
 
