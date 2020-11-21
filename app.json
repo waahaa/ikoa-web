@@ -1,12 +1,12 @@
 {
-    "name": "ikoa-web",
-    "description": "This app runs iKOA on heroku",
+    "name": "javae",
+    "description": "This app runs javae on heroku",
     "keywords": [
         "heroku",
-        "iKOA",
+        "javae",
         "google drive"
     ],
-    "repository": "https://github.com/mason1901/ikoa-web",
+    "repository": "https://github.com/waahaa/javae",
     "env": {
         "TEAM_DRIVE_ID": {
             "description": "the ID of the team drive"
@@ -18,10 +18,12 @@
             "description": "follow the tips and FAQ in README.md"
         },
         "RCLONE_DESTINATION": {
-            "description": "the path where stores the downloaded data,for example:/ikuuu,don't add a \"/\" at the end"
+            "description": "this path where stores the downloaded data,for example:/ikuuu,don't add a \"/\" at the end",
+            "value": "/ikuuu"
         },
         "LOG_PATH": {
-            "description": "the path where stores the downloaded statistic log, start with \"/\", for exmaple: /log"
+            "description": "the path where stores the downloaded statistic log, start with \"/\", for exmaple: /log",
+            "value": "/log"
         },
         "adminUser": {
             "description": "the only user which you can login in the web page"
@@ -30,7 +32,8 @@
             "description": "the password for the admin user,at least 8 characters"
         },
         "herokuApp": {
-            "description": "the app url,for example:\"https://appname.herokuapp.com\", don't make mistake"
+            "description": "the app url,for example:\"https://appname.herokuapp.com\", don't make mistake",
+            "value": "https://appname.herokuapp.com"
         },
         "SECRET_KEY": {
             "description": "used for the csrf token, it is an auto generated value",
@@ -48,12 +51,12 @@
             "value": "true"
         },
         "PROMOTION": {
-            "description": "Is there a promotion for ikoa? (true or false)",
+            "description": "Is there a promotion for javae? (true or false)",
             "value": "false"
         },
         "OUTPUT_FILENAME": {
             "description": "Choose a format to naming the downloaded file, pid or cid or num.",
-            "value": "cid"
+            "value": "pid"
         }
 
     },
